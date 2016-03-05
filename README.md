@@ -1,4 +1,3 @@
-# Biblical Literacy Web App
+# Year Of Biblical Literacy Application
 
-TODO
-links and routing from /overview 
+Working version at yobl.brentenlovato.com
