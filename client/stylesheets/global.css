@@ -1,0 +1,67 @@
+.loading {
+  padding-top: 40px;
+}
+
+.pagination li {
+  margin: 0 !important;
+}
+
+#scrollToToday {
+  position: fixed;
+  bottom: 10px;
+  right: 25px;
+}
+
+#audioControlBtn {
+  position: absolute;
+  right: 25px;
+}
+
+.btn-large i {
+  font-size: 32px;
+}
+
+.card {
+  margin-top: 15px;
+}
+
+ul.side-nav li a {
+  padding: 17px;
+  display: block;
+}
+
+ul.side-nav li {
+  float: none;
+}
+
+body {
+  background-color: #e1f5fe;
+}
+
+.collection .collection-item.avatar i.circle {
+  font-size: 14px !important;
+  font-style: normal;
+
+}
+.collection-item > a {
+  color: black;
+}
+
+.progress {
+  position: fixed;
+  margin: 0;
+  margin-top: 20px;
+  bottom:-.5px;
+  background-color: rgba(0,0,0,0);
+}
+
+.dailyHeaderText {
+  font-size: 24px;
+  margin: 10px 0px 0px 0px;
+  font-weight: 300;
+}
+
+a.copyright {
+  margin: 0;
+  color: gray;
+}

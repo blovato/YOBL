@@ -1,0 +1,38 @@
+<template name="_header">
+  <nav>
+    <div class="nav-wrapper">
+      <div class="container">
+        <a class="brand-logo" href="">YOBL</a>
+
+        <ul class="right hide-on-med-and-down">
+          <li class="{{ isActivePath regex='today' }}"><a href="{{ pathFor 'today' }}" title="Today">Today's Reading</a></li>
+          <li class="{{ isActiveRoute regex='overview' }}"><a href="{{ pathFor 'overview' }}" title="Plan Overview">Plan Overview</a></li>
+          {{#if currentUser}}
+            <li><a href="#" data-action="logout" title="Sign Out">Sign Out</a></li>
+          {{else}}
+            <li><a href="{{ pathFor 'atSignIn' }}" title="Sign In">Sign in</a></li>
+            <li><a href="{{ pathFor 'atSignUp' }}" title="Register">Register</a></li>
+          {{/if}}
+        </ul>
+
+        <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <ul id="nav-mobile" class="side-nav">
+    <li class="bold {{ isActiveRoute regex='home' }}"><a href="{{ pathFor 'home' }}" title="home">Home</a></li>
+
+    <li class="bold {{ isActiveRoute regex='today' }}"><a href="{{ pathFor 'today'}}" title="today"> Today's Reading </a></li>
+
+    <li class="{{ isActiveRoute regex='overview' }}"><a href="{{ pathFor 'overview' }}" title="Plan Overview">Plan Overview</a></li>
+
+    {{#if currentUser}}
+      <li><a href="#" data-action="logout" title="Sign Out"><i class="mdi-action-logout"></i> Sign Out</a></li>
+    {{else}}
+      <li><a href="{{ pathFor 'atSignIn' }}" title="Sign In">Sign in</a></li>
+      <li><a href="{{ pathFor 'atSignUp' }}" title="Register">Register</a></li>
+    {{/if}}
+  </ul>
+
+</template>

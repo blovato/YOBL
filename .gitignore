@@ -1,0 +1,8 @@
+.DS_Store
+*.sublime-project
+*.sublime-workspace
+dump
+settings.json
+mup.json
+xls-seed-builder/node_modules
+public/images

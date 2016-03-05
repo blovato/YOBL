@@ -1,0 +1,24 @@
+<template name="overview">
+
+  <a id="scrollToToday" class="btn-floating btn-large red lighten-2"><i class="material-icons">today</i></a>
+	<ul class="collection" style="opacity:1; margin: 0;">
+		{{#each plan}}
+	    <li class="collection-item avatar">
+	      <i id="dateSpan" class="circle {{setPastStyle}}">{{date}}</i>
+	      <a href="/{{_id}}">
+		      <span class="title">{{ chapterName }}</span>
+          <p>{{ readingShort }} and Psalm {{ psalm }}</p>
+        </a>
+        <p class="secondary-content">
+          <input type="checkbox" id="{{_id}}" checked="{{checked}}"/>
+          <label for="{{_id}}"></label>
+        </p>
+	    </li>
+    {{/each}}
+  </ul>
+
+  <div id="progressBar" class="progress">
+    <div id="progressFillOverview" class="determinate red lighten-2" style="width: 0%"></div>
+  </div>
+
+</template>
