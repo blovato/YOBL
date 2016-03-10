@@ -11,7 +11,7 @@
       <div class="col s6">
         <ul class="pagination">
           <li class="changeDate"><a id="backLink" href="{{yesterdayUrl}}"><i class="material-icons">chevron_left</i></a></li>
-          <li><a href="#">{{date}}</a></li>
+          <li class="center-align" style="width:50px;"><a href="#">{{date}}</a></li>
           <li class="changeDate"><a id="forwardLink" href="{{tomorrowUrl}}"><i class="material-icons">chevron_right</i></a></li>
         </ul>
       </div>
@@ -42,14 +42,12 @@
         </div>
         <p class="center-align">
           <input type="checkbox" id="{{_id}}" checked="{{checked}}"/>
-          <label for="{{_id}}">Mark as Completed</label>
+          <label for="{{_id}}">Completed</label>
         </p>
       </div>
     </div>
   </div><div id="audioBar" class="progress" style="height:20px">
     <div id="audioFiller" class="determinate light-blue lighten-3" style="width: 0%"></div>
   </div>
-  <div id="progressBar" class="progress">
-    <div id="progressFiller" class="determinate red lighten-2" style="width: 0%"></div>
-  </div>
+  {{> progress}}
 </template>

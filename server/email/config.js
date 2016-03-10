@@ -1,20 +1,20 @@
 Meteor.startup(function() {
-
   Meteor.Mailgun.config({
-    username: 'postmaster@domain.com',
-    password: 'password-goes-here'
+    username: Meteor.settings.username,
+    password: Meteor.settings.password
   });
 
   Meteor.methods({
-    'sendContactEmail': function(name, email, message) {
+    'sendDailyEmail': function(userEmails, message) {
       this.unblock();
+      console.log('called sendDailyEmail');
 
       Meteor.Mailgun.send({
-        to: 'recipient@example.com',
-        from: name + ' <' + email + '>',
-        subject: 'New Contact Form Message',
+        to: 'brentengust@gmail.com',
+        from: 'Brenten Lovato <brentengust@gmail.com>',
+        subject: 'Welcome to the Year Of Biblical Literacy',
         text: message,
-        html: Handlebars.templates['contactEmail']({siteURL: Meteor.absoluteUrl(), fromName: name, fromEmail: email, message: message})
+        html: Handlebars.templates['dailyEmail']({siteURL: Meteor.absoluteUrl(), fromName: name, fromEmail: email, message: message})
       });
     }
   });

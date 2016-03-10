@@ -1,10 +1,7 @@
 Meteor.subscribe('plans');
 
 Template.overview.rendered = function() {
-  $(window).scroll(function() {
-    var scrollPercent = 100 * $(window).scrollTop() / ($(document).height() - $(window).height());
-    $('#progressFillOverview').css('width', scrollPercent + "%");
-  });
+
 };
 
 // today
@@ -30,7 +27,7 @@ Template.overview.helpers({
     if (thisDateNum == todayNum) {
       return "red lighten-2 todayActive z-depth-1";
     } else if (thisDateNum < todayNum) {
-      return "light-blue lighten-4";
+      return "grey lighten-2";
     } else {
       return "red lighten-3 z-depth-1";
     }
@@ -44,19 +41,16 @@ Template.overview.helpers({
 });
 
 Template.overview.events({
-  'click #progressFillOverview': function() {
-    $("html, body").animate({ scrollTop: 0 }, 1500, "swing");
-  },
   'click input[type=checkbox]': function(event) {
     var isChecked = event.target.checked;
-    if(isChecked){
-      Materialize.toast("Completed: "+ this.readingShort+" & Psalm "+ this.psalm, 3000);
-    }
+    var self = this;
     Meteor.call('checked', this._id, function(err, res) {
       if (err) {
         alert("Error: " + err.reason);
       } else {
-        //console.log(res);
+        if(isChecked){
+          Materialize.toast("Completed: "+ self.readingShort+" & Psalm "+ self.psalm, 3000);
+        }
       }
     });
   },

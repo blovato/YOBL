@@ -49,8 +49,9 @@ body {
 
 .progress {
   position: fixed;
+  height:8px;
   margin: 0;
-  margin-top: 20px;
+  margin-top: 25px;
   bottom:-.5px;
   background-color: rgba(0,0,0,0);
 }
@@ -64,4 +65,8 @@ body {
 a.copyright {
   margin: 0;
   color: gray;
+}
+
+.progressLabel{
+  margin:0;
 }

@@ -1,4 +1,5 @@
 Meteor.subscribe('plans');
+Meteor.subscribe('allUsers');
 
 Template.daily.onRendered(function() {
   $("html, body").animate({scrollTop: 0}, 1);
@@ -9,22 +10,8 @@ Template.daily.onRendered(function() {
   var audio = $('#audio').get(0);
   var audioProgress = (audio.currentTime/audio.duration) *100;
   $('#audioFiller').css('width', audioProgress + "%");
-
-  $(window).scroll(function() {
-    var scrollPercent = 100 * $(window).scrollTop() / ($(document).height() - $(window).height());
-    $('#progressFiller').css('width', scrollPercent +"%"  );
-  });
-
-  $('#progressFiller').on('click', function(){
-    $("html, body").animate({scrollTop: 0}, 1500, "swing");
-  });
-
-  $('.changeDate').on('click', function(){
-    Session.set("bibleAPIresp", false);
-    Session.set("biblePsalmResp", false);
-  });
   
-  // make api calls (3 total)
+  // make api calls (2 total)
   this.autorun(function(){
     var plans = Template.currentData();
     var bibleAPIurl = "http://www.esvapi.org/v2/rest/passageQuery?key=IP&passage="+encodeURI(plans.readingShort)
@@ -121,20 +108,22 @@ Template.daily.events({
     }
   },
   'click .changeDate':function(){
+    Session.set("bibleAPIresp", false);
+    Session.set("biblePsalmResp", false);
     $('#audioControlBtn').css('position', 'absolute')
                          .css('top', ($('#main-card').offset().top - 30) + "px");
     $('#audioBtnIcon').html('play_arrow');
   },
   'click input[type=checkbox]': function(event) {
     var isChecked = event.target.checked;
-    if(isChecked){
-      Materialize.toast("Completed: "+ this.readingShort+" & Psalm "+ this.psalm, 3000);
-    }
+    var self = this;
     Meteor.call('checked', this._id, function(err, res) {
       if (err) {
         alert("Error: " + err.reason);
       } else {
-        //console.log(res);
+        if(isChecked){
+          Materialize.toast("Completed: "+ self.readingShort+" & Psalm "+ self.psalm, 3000);
+        }
       }
     });
   }
