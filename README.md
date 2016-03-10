@@ -1,3 +1,3 @@
-# Year Of Biblical Literacy Application
+# Year Of Biblical Literacy
 
 Working version at yobl.brentenlovato.com
