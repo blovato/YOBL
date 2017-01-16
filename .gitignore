@@ -6,3 +6,5 @@ settings.json
 mup.json
 xls-seed-builder/node_modules
 public/images
+.idea/
+node_modules/
